@@ -14,6 +14,26 @@ class AppDrawer extends StatelessWidget {
           fontWeight: FontWeight.w400, // opcional: deixa o texto um pouco mais grosso
         ),
       ),
+      trailing: const Icon(Icons.arrow_forward_ios, color: Colors.black, size: 16),
+      onTap: onTap,
+    );
+  }
+
+   ListTile buildListTileIconRight(Icon icon, String title, VoidCallback onTap) {
+    return ListTile(
+      leading: Icon(
+        icon.icon, // pega o ícone do widget Icon
+        color: Colors.black.withOpacity(0.6), // torna mais transparente
+      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 0.5),
+      title: Text(
+        title, 
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 18.0,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
       onTap: onTap,
     );
   }
@@ -67,11 +87,14 @@ class AppDrawer extends StatelessWidget {
                   buildListTile('SNKRS', () {
                     Navigator.pop(context);
                   }),
-                  const Divider(color: Colors.grey),
-                  buildListTile('Help & Support', () {
+                  const Divider(color: Colors.transparent),
+                  buildListTileIconRight(const Icon(Icons.track_changes), 'Acompanhe seu pedido', () {
                     Navigator.pop(context);
                   }),
-                  buildListTile('Logout', () {
+                  buildListTileIconRight(const Icon(Icons.accessibility), 'Acessibilidade', () {
+                    Navigator.pop(context);
+                  }),
+                  buildListTileIconRight(const Icon(Icons.help), 'Ajuda', () {
                     Navigator.pop(context);
                   }),
                 ],
