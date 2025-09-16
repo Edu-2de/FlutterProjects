@@ -1,37 +1,53 @@
 import 'package:flutter/material.dart';
 
-class Drawer extends StatelessWidget {
-  const Drawer({super.key, required ListView child});
+class AppDrawer extends StatelessWidget {
+  const AppDrawer({super.key});
+
+  ListTile buildListTile(IconData icon, String title, VoidCallback onTap) {
+    return ListTile(leading: Icon(icon), title: Text(title), onTap: onTap);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Menu')),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
+    return Drawer(
+      child: Column(
+        children: [
+          Container(
+            height: 100,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Theme.of(context).colorScheme.primary,
+                ],
               ),
-              child: Text('Title'),
             ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-              onTap: () {
-                Navigator.pushNamed(context, '/Home');
-              },
+            child: const SafeArea(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                
+                ),
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Configs'),
-              onTap: () {
-                Navigator.pushNamed(context, '/Configs');
-              },
+          ),
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                buildListTile(Icons.home_outlined, 'Home', () {}),
+                buildListTile(Icons.favorite_outline, 'Favorites', () {}),
+                buildListTile(Icons.shopping_bag_outlined, 'My Orders', () {}),
+                buildListTile(Icons.person_outline, 'Profile', () {}),
+                buildListTile(Icons.settings_outlined, 'Settings', () {}),
+                const Divider(),
+                buildListTile(Icons.help_outline, 'Help & Support', () {}),
+                buildListTile(Icons.logout, 'Logout', () {}),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
