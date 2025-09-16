@@ -88,10 +88,10 @@ class AppDrawer extends StatelessWidget {
                     Navigator.pop(context);
                   }),
                   const Divider(color: Colors.transparent),
-                  buildListTileIconRight(const Icon(Icons.track_changes), 'Acompanhe seu pedido', () {
+                  buildListTileIconRight(const Icon(Icons.inventory_2), 'Acompanhe seu pedido', () {
                     Navigator.pop(context);
                   }),
-                  buildListTileIconRight(const Icon(Icons.accessibility), 'Acessibilidade', () {
+                  buildListTileIconRight(const Icon(Icons.settings), 'Acessibilidade', () {
                     Navigator.pop(context);
                   }),
                   buildListTileIconRight(const Icon(Icons.help), 'Ajuda', () {
