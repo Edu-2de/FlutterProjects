@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-import 'screens/modern_popular_screen.dart';
-import 'screens/modern_product_detail_screen.dart';
-import 'screens/cart_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,104 +10,56 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'SneakerHub',
+      title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFE53E3E),
-          brightness: Brightness.light,
-        ),
-        primaryColor: const Color(0xFFE53E3E),
-        scaffoldBackgroundColor: const Color(0xFFF7FAFC),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFFE53E3E),
-          foregroundColor: Colors.white,
-          elevation: 0,
-          centerTitle: true,
-        ),
-        cardTheme: CardThemeData(
-          elevation: 2,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          color: Colors.white,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFFE53E3E),
-            foregroundColor: Colors.white,
-            elevation: 2,
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        ),
-        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      // Main navigation using routes
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const MainScaffold(),
-        '/popular': (context) => const PopularScreen(),
-        '/detail': (context) => const ProductDetailScreen(),
-        '/cart': (context) => const CartScreen(),
-      },
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-/// MainScaffold manages bottom navigation and screens
-class MainScaffold extends StatefulWidget {
-  const MainScaffold({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+  final String title;
 
   @override
-  State<MainScaffold> createState() => _MainScaffoldState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MainScaffoldState extends State<MainScaffold> {
-  int _selectedIndex = 0;
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
 
-  // List of screens for navigation
-  final List<Widget> _screens = [
-    const HomeScreen(),
-    const PopularScreen(),
-    const CartScreen(),
-  ];
-
-  void _onItemTapped(int index) {
+  void _incrementCounter() {
     setState(() {
-      _selectedIndex = index;
+      _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star_outline),
-            activeIcon: Icon(Icons.star),
-            label: 'Popular',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            activeIcon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-        ],
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
       ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text('You have pushed the button this many times:'),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ), 
     );
   }
 }

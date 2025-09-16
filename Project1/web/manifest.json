@@ -1,6 +1,6 @@
 {
-    "name": "my_professional_app",
-    "short_name": "my_professional_app",
+    "name": "project2",
+    "short_name": "project2",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
