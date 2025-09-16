@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MeuApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MeuApp extends StatelessWidget {
+  const MeuApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,22 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-        scaffoldBackgroundColor: const Color.fromARGB(255, 251, 252, 253),
+        brightness: Brightness.light,
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          foregroundColor: Colors.black,
+          iconTheme: IconThemeData(color: Colors.black),
+        ),
+        drawerTheme: const DrawerThemeData(
+          backgroundColor: Colors.white,
+        ),
+        listTileTheme: const ListTileThemeData(
+          textColor: Colors.black,
+          iconColor: Colors.black,
+        ),
+        useMaterial3: false,
       ),
       home: const HomeScreen(),
     );
