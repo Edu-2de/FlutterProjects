@@ -10,44 +10,48 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(
-        children: [
-          Container(
-            height: 100,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Theme.of(context).colorScheme.primary,
-                ],
-              ),
-            ),
-            child: const SafeArea(
+      child: Container(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 32.0, bottom: 64.0),
               child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                
+                child: SizedBox(
+                  height: 80,
+                  child: Image.asset('assets/logo.png', fit: BoxFit.contain),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                buildListTile(Icons.home_outlined, 'Home', () {}),
-                buildListTile(Icons.favorite_outline, 'Favorites', () {}),
-                buildListTile(Icons.shopping_bag_outlined, 'My Orders', () {}),
-                buildListTile(Icons.person_outline, 'Profile', () {}),
-                buildListTile(Icons.settings_outlined, 'Settings', () {}),
-                const Divider(),
-                buildListTile(Icons.help_outline, 'Help & Support', () {}),
-                buildListTile(Icons.logout, 'Logout', () {}),
-              ],
+            Expanded(
+              flex: 5, 
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  buildListTile(Icons.home_outlined, 'Home', () {}),
+                  buildListTile(Icons.favorite_outline, 'Favorites', () {}),
+                  buildListTile(
+                    Icons.shopping_bag_outlined,
+                    'My Orders',
+                    () {},
+                  ),
+                  buildListTile(Icons.person_outline, 'Profile', () {}),
+                  buildListTile(Icons.settings_outlined, 'Settings', () {}),
+                ],
+              ),
             ),
-          ),
-        ],
+            const Divider(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16.0),
+              child: Column(
+                children: [
+                  buildListTile(Icons.help_outline, 'Help & Support', () {}),
+                  buildListTile(Icons.logout, 'Logout', () {}),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

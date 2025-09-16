@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-        scaffoldBackgroundColor: const Color(0xFFF7FAFC),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 251, 252, 253),
       ),
       home: const HomeScreen(),
     );
