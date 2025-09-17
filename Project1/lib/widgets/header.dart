@@ -17,32 +17,44 @@ class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
-      
+
       leading: Padding(
-        padding: const EdgeInsets.only(left: 10.0),
+        padding: const EdgeInsets.only(left: 15.0),
         child: SizedBox(
           height: 24,
           child: Image.asset('assets/logo.png', fit: BoxFit.contain),
         ),
       ),
-      title: const SizedBox(),
       centerTitle: false,
       actions: [
-        IconButton(
-          icon: Icon(
-            isFavorite ? Icons.favorite : Icons.favorite_outline,
-            color: isFavorite ? Colors.red : Colors.black,
+        Padding(
+          padding: const EdgeInsets.only(
+            right: 10.0,
           ),
-          onPressed: onFavoriteToggle,
-        ),
-        IconButton(
-          icon: const Icon(Icons.shopping_bag_outlined, color: Colors.black),
-          onPressed: () {},
-        ),
-        Builder(
-          builder: (context) => IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () => Scaffold.of(context).openEndDrawer(),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                icon: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_outline,
+                  color: isFavorite ? Colors.red : Colors.black,
+                ),
+                onPressed: onFavoriteToggle,
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.shopping_bag_outlined,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
+              ),
+              Builder(
+                builder: (context) => IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () => Scaffold.of(context).openEndDrawer(),
+                ),
+              ),
+            ],
           ),
         ),
       ],
