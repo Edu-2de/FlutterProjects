@@ -16,7 +16,7 @@ class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
       leading: Padding(
         padding: const EdgeInsets.only(left: 8.0),
         child: SizedBox(
