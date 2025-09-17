@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../widgets/drawer.dart';
 import '../widgets/search_bar.dart';
 import '../widgets/header.dart';
-import '../widgets/info_carrousel.dart';/*  */
+import '../widgets/info_carrousel.dart'; 
+import '../widgets/video.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -40,17 +41,20 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
               child: InfoCarousel(
-              items: [
-                InfoItem(
-                  icon: Icons.local_shipping,
-                  text: 'Frete grátis para todo o Brasil',
-                ),
-                InfoItem(icon: Icons.star, text: 'Produtos exclusivos'),
-                InfoItem(icon: Icons.lock, text: 'Compra segura'),
-              ],
+                items: [
+                  InfoItem(
+                    icon: Icons.local_shipping,
+                    text: 'Frete grátis para todo o Brasil',
+                  ),
+                  InfoItem(icon: Icons.star, text: 'Produtos exclusivos'),
+                  InfoItem(icon: Icons.lock, text: 'Compra segura'),
+                ],
+              ),
             ),
-            )
-            
+            Padding(
+              padding: const EdgeInsets.only(top: 0.0),
+              child: VideoWidget(url: 'assets/videos/nike.mp4'),
+            ),
           ],
         ),
       ),
