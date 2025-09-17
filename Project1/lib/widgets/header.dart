@@ -17,8 +17,9 @@ class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
+      
       leading: Padding(
-        padding: const EdgeInsets.only(left: 8.0),
+        padding: const EdgeInsets.only(left: 10.0),
         child: SizedBox(
           height: 24,
           child: Image.asset('assets/logo.png', fit: BoxFit.contain),
