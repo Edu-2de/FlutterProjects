@@ -113,8 +113,8 @@ class _HomeScreenState extends State<HomeScreen> {
              child: Padding(
               padding: const EdgeInsets.only(top: 20.0),
               child: SizedBox(
-                height: 200,
-                child: Image.asset('assets/nikeImage.jpg', fit: BoxFit.contain),
+                height: 100,
+                child: Image.asset('assets/nikeImage.jpg', fit: BoxFit.cover),
               )
             )
           )
