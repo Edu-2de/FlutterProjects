@@ -109,6 +109,15 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          SliverToBoxAdapter(
+             child: Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: SizedBox(
+                height: 200,
+                child: Image.asset('assets/nikeImage.jpg', fit: BoxFit.contain),
+              )
+            )
+          )
         ],
       ),
     );
