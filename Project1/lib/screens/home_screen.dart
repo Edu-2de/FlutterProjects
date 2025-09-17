@@ -68,20 +68,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 28,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w900,
                       ),
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  const Text(
-                    'Texto explicativo mais fino e centralizado.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.black54,
+                  const SizedBox(height: 10),
+                  const SizedBox(
+                    width: 250,
+                    child: Text(
+                      'Feito para líderes de grupo que permanecem incomparáveis e deixam seu estilo falar por si, o Nike Air Superfly é um modelo minimalista, porém, nada modesto.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black54,
+                      ),
                     ),
                   ),
+
                   const SizedBox(height: 20),
                   SizedBox(
                     width: 180,
