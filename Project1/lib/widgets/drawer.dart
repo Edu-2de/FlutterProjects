@@ -10,8 +10,8 @@ class AppDrawer extends StatelessWidget {
         title, 
         style: const TextStyle(
           color: Colors.black,
-          fontSize: 20.0, // aumenta o tamanho da fonte
-          fontWeight: FontWeight.w400, // opcional: deixa o texto um pouco mais grosso
+          fontSize: 20.0, 
+          fontWeight: FontWeight.w400, 
         ),
       ),
       trailing: const Icon(Icons.arrow_forward_ios, color: Colors.black, size: 16),
@@ -22,8 +22,8 @@ class AppDrawer extends StatelessWidget {
    ListTile buildListTileIconRight(Icon icon, String title, VoidCallback onTap) {
     return ListTile(
       leading: Icon(
-        icon.icon, // pega o ícone do widget Icon
-        color: Colors.black.withOpacity(0.6), // torna mais transparente
+        icon.icon, 
+        color: Colors.black.withOpacity(0.6), 
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 0.5),
       title: Text(

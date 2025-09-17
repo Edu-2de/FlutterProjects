@@ -18,38 +18,41 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        title: Row(
-          children: [
-            // Logo na esquerda
-            SizedBox(
-              height: 16,
-              child: Image.asset('assets/logo.png', fit: BoxFit.contain),
-            ),
-            const Spacer(), // espaço flexível
-            // Coração
-            IconButton(
-              icon: Icon(
-                isFavorite ? Icons.favorite : Icons.favorite_outline,
-                color: isFavorite ? Colors.red : Colors.black,
-              ),
-              onPressed: () {
-                setState(() {
-                  isFavorite = !isFavorite;
-                });
-              },
-            ),
-            // Sacola
-            IconButton(
-              icon: const Icon(Icons.shopping_bag_outlined, color: Colors.black),
-              onPressed: () {},
-            ),
-
-          ],
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 8.0),
+          child: SizedBox(
+            height: 24,
+            child: Image.asset('assets/logo.png', fit: BoxFit.contain),
+          ),
         ),
+        title: const SizedBox(), 
+        centerTitle: false,
+        actions: [
+          IconButton(
+            icon: Icon(
+              isFavorite ? Icons.favorite : Icons.favorite_outline,
+              color: isFavorite ? Colors.red : Colors.black,
+            ),
+            onPressed: () {
+              setState(() {
+                isFavorite = !isFavorite;
+              });
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.shopping_bag_outlined, color: Colors.black),
+            onPressed: () {},
+          ),
+          Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () => Scaffold.of(context).openEndDrawer(),
+            ),
+          ),
+        ],
         elevation: 0,
       ),
-      endDrawer: const AppDrawer(), // ADICIONE ESTA LINHA!
+      endDrawer: const AppDrawer(),
       body: Container(
         color: Colors.white,
         width: double.infinity,
@@ -63,6 +66,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-    );  
+    );
   }
 }
