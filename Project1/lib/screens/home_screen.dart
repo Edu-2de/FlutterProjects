@@ -10,6 +10,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool isFavorite = false; // adicione esta variável
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +27,19 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 16,
               child: Image.asset('assets/logo.png', fit: BoxFit.contain),
             ),
-            const Spacer(), 
+            const Spacer( flex: 1), // espaço entre logo e ícones
             // Sacola
+            IconButton(
+              icon: Icon(
+                isFavorite ? Icons.favorite : Icons.favorite_outline,
+                color: isFavorite ? Colors.red : Colors.black,
+              ),
+              onPressed: () {
+                setState(() {
+                  isFavorite = !isFavorite;
+                });
+              },
+            ),
             IconButton(
               icon: const Icon(Icons.shopping_bag_outlined, color: Colors.black),
               onPressed: () {},
