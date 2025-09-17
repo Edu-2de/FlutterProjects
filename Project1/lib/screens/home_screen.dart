@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/drawer.dart';
+import '../widgets/search_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             // Logo na esquerda
             SizedBox(
-              height: 20,
+              height: 16,
               child: Image.asset('assets/logo.png', fit: BoxFit.contain),
             ),
             const Spacer(), 
@@ -38,15 +39,14 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.white,
         width: double.infinity,
         height: double.infinity,
-        child: const Center(
-          child: Text(
-            'Home Screen',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
+        child: Column(
+          children: const [
+            Padding(
+              padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0),
+              child: SearchBarApp(), // barra de pesquisa
             ),
-          ),
+            // Outros widgets podem ser adicionados aqui
+          ],
         ),
       ),
     );
