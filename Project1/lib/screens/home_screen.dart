@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: SearchBarApp(),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: InfoCarousel(
               items: [
                 InfoItem(
