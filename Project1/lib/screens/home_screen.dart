@@ -55,7 +55,56 @@ class _HomeScreenState extends State<HomeScreen> {
               child: VideoWidget(url: 'assets/videos/nike.mp4'),
             ),
           ),
-          // Adicione outros SliverToBoxAdapter para mais conteúdo rolável
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 250, // ajuste o valor conforme desejar
+                    child: const Text(
+                      'DAS PISTAS PARA AS RUAS',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Texto explicativo mais fino e centralizado.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black54,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: 180,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: const Text(
+                        'Comprar',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
