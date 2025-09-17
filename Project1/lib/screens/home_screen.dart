@@ -10,16 +10,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool isFavorite = false; // adicione esta variável
-
+  bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // garante fundo branco
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        automaticallyImplyLeading: false, // remove o drawer automático
+        automaticallyImplyLeading: false,
         title: Row(
           children: [
             // Logo na esquerda
@@ -27,8 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 16,
               child: Image.asset('assets/logo.png', fit: BoxFit.contain),
             ),
-            const Spacer( flex: 1), // espaço entre logo e ícones
-            // Sacola
+            const Spacer(), // espaço flexível
+            // Coração
             IconButton(
               icon: Icon(
                 isFavorite ? Icons.favorite : Icons.favorite_outline,
@@ -40,29 +39,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               },
             ),
+            // Sacola
             IconButton(
               icon: const Icon(Icons.shopping_bag_outlined, color: Colors.black),
               onPressed: () {},
             ),
+
           ],
         ),
         elevation: 0,
       ),
-      endDrawer: const AppDrawer(), // drawer na direita
+      endDrawer: const AppDrawer(), // ADICIONE ESTA LINHA!
       body: Container(
         color: Colors.white,
         width: double.infinity,
         height: double.infinity,
-        child: Column(
-          children: const [
+        child: const Column(
+          children: [
             Padding(
               padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0),
-              child: SearchBarApp(), // barra de pesquisa
+              child: SearchBarApp(),
             ),
-            // Outros widgets podem ser adicionados aqui
           ],
         ),
       ),
-    );
+    );  
   }
 }
